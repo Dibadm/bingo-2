@@ -1,0 +1,92 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #1a1a2e; --surface: #16213e; --card: #0f3460;
+  --primary: #e94560; --accent: #f5c518; --text: #eee; --text2: #aaa;
+  --green: #2ecc71; --red: #e74c3c; --dark: #0d0d1a;
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); }
+.app { max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--surface); position: sticky; top: 0; z-index: 10; }
+.header .title { font-weight: 700; font-size: 18px; }
+.back-btn { background: none; border: none; color: var(--accent); font-size: 22px; cursor: pointer; width: 40px; height: 40px; }
+.lang-btn { background: var(--card); border: none; color: var(--text); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+.content { padding: 16px; padding-bottom: 100px; }
+.loading { display: flex; align-items: center; justify-content: center; height: 100vh; font-size: 20px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card { background: var(--card); border-radius: 14px; padding: 16px; cursor: pointer; transition: transform 0.1s; }
+.card:active { transform: scale(0.97); }
+.card-icon { font-size: 32px; margin-bottom: 6px; }
+.card-label { font-size: 14px; font-weight: 600; }
+.card-sub { font-size: 12px; color: var(--text2); }
+
+.btn { display: block; width: 100%; padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 10px; transition: opacity 0.15s; }
+.btn:active { opacity: 0.8; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-accent { background: var(--accent); color: #000; }
+.btn-green { background: var(--green); color: #fff; }
+.btn-outline { background: transparent; border: 2px solid var(--card); color: var(--text); }
+.btn-sm { padding: 10px; font-size: 14px; }
+
+.input { width: 100%; padding: 14px; border: 2px solid var(--card); border-radius: 12px; background: var(--surface); color: var(--text); font-size: 16px; margin-bottom: 12px; outline: none; }
+.input:focus { border-color: var(--primary); }
+
+.flex { display: flex; gap: 8px; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4 { gap: 4px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.text-center { text-align: center; }
+.text-sm { font-size: 13px; }
+.text-accent { color: var(--accent); }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+.text-muted { color: var(--text2); }
+.font-bold { font-weight: 700; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.amount { font-size: 24px; font-weight: 700; color: var(--accent); }
+
+.room-card { background: var(--card); border-radius: 14px; padding: 20px; margin-bottom: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.room-fee { font-size: 22px; font-weight: 700; color: var(--accent); }
+.room-info { text-align: right; font-size: 13px; color: var(--text2); }
+
+.card-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; margin: 12px 0; }
+.card-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+.card-cell.available { background: #2a2a4a; color: #666; }
+.card-cell.selected { background: var(--green); color: #fff; border-color: #fff; }
+.card-cell.taken { background: #111; color: #333; cursor: not-allowed; }
+.card-cell.own { background: var(--green); color: #fff; }
+
+.num-grid { display: grid; grid-template-columns: repeat(15, 1fr); gap: 2px; margin: 8px 0; }
+.num-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 12px; font-weight: 600; background: var(--surface); color: var(--text2); }
+.num-cell.called { background: var(--accent); color: #000; }
+
+.progress-bar { height: 6px; background: var(--surface); border-radius: 3px; margin: 8px 0; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width 0.3s; }
+
+.ball-large { width: 80px; height: 80px; border-radius: 50%; background: var(--accent); color: #000; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; margin: 0 auto; }
+.ball-small { width: 40px; height: 40px; border-radius: 50%; background: var(--card); color: var(--text2); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; }
+
+.bingo-card { background: var(--surface); border-radius: 12px; padding: 8px; margin-bottom: 8px; }
+.bingo-card table { width: 100%; border-collapse: collapse; }
+.bingo-card td { text-align: center; padding: 4px; font-size: 13px; font-weight: 600; border: 1px solid var(--card); border-radius: 2px; }
+.bingo-card td.called { background: var(--accent); color: #000; }
+.bingo-card td.marked { background: var(--green); color: #fff; }
+
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.overlay-content { text-align: center; padding: 32px; }
+.overlay-content h2 { font-size: 28px; margin-bottom: 12px; }
+.overlay-content .prize { font-size: 48px; font-weight: 800; color: var(--accent); margin: 12px 0; }
+
+.admin-card { background: var(--card); border-radius: 12px; padding: 16px; margin-bottom: 8px; }
+.admin-stat { font-size: 28px; font-weight: 700; color: var(--accent); }
+
+.tab-bar { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; }
+.tab { padding: 8px 16px; border-radius: 8px; background: var(--surface); cursor: pointer; white-space: nowrap; font-size: 13px; }
+.tab.active { background: var(--primary); color: #fff; }
+
+.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--surface); color: var(--text); padding: 12px 24px; border-radius: 12px; font-size: 14px; z-index: 200; animation: fadeIn 0.2s; border: 1px solid var(--card); }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
