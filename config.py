@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-ADMIN_IDS = [123456789]
+BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+ADMIN_IDS = [int(x.strip()) for x in os.getenv("ADMIN_IDS", "123456789").split(",") if x.strip()]
 
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "habesha_bet.db"
