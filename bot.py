@@ -8,7 +8,7 @@ from typing import Optional
 from telegram import (
     Update, InlineKeyboardButton, InlineKeyboardMarkup,
     KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove,
-    Message
+    Message, WebAppInfo
 )
 from telegram.ext import (
     Application, CommandHandler, MessageHandler, CallbackQueryHandler,
@@ -139,10 +139,12 @@ MAIN_BUTTONS = [
 
 
 def main_menu_kb(uid):
-    return InlineKeyboardMarkup([
+    kb = [
         [InlineKeyboardButton(_(key, uid), callback_data=val) for key, val in row]
         for row in MAIN_BUTTONS
-    ])
+    ]
+    kb.append([InlineKeyboardButton("🎱 Open App", web_app=WebAppInfo(url=config.WEB_APP_URL))])
+    return InlineKeyboardMarkup(kb)
 
 
 async def show_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
